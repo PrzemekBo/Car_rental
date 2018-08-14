@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Repository
-public class CarDaoImpl extends AbstractDao <CarEntity, Long>implements CarDao {
+public class CarDaoImpl extends AbstractDao<CarEntity, Long> implements CarDao {
 
     @Override
     public List<CarEntity> findByCarType(String type) {
@@ -22,7 +22,7 @@ public class CarDaoImpl extends AbstractDao <CarEntity, Long>implements CarDao {
     @Override
     public List<CarEntity> findCarByMark(String mark) {
         TypedQuery<CarEntity> query = entityManager.createQuery(
-                "select car from CarEntity car where upper(car.mark) like concat(upper(:mark),'%' ) ",CarEntity.class);
+                "select car from CarEntity car where upper(car.mark) like concat(upper(:mark),'%' ) ", CarEntity.class);
         query.setParameter("mark", mark);
         return null;
     }

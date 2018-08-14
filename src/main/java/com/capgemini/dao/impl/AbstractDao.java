@@ -1,5 +1,7 @@
 package com.capgemini.dao.impl;
 
+import com.capgemini.dao.Dao;
+
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -11,7 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 
-import com.capgemini.dao.Dao;
+
 
 
 @Transactional(Transactional.TxType.SUPPORTS)
