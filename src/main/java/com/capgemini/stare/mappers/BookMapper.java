@@ -1,14 +1,14 @@
-package com.capgemini.mappers;
+package com.capgemini.stare.mappers;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.capgemini.domain.AuthorEntity;
-import com.capgemini.domain.BookEntity;
-import com.capgemini.types.AuthorTO;
-import com.capgemini.types.BookTO;
-import com.capgemini.types.BookTO.BookTOBuilder;;
+import com.capgemini.stare.domain.AuthorEntity;
+import com.capgemini.stare.domain.BookEntity;
+import com.capgemini.stare.types.AuthorTO;
+import com.capgemini.stare.types.BookTO;
+import com.capgemini.stare.types.BookTO.BookTOBuilder;;
 
 public class BookMapper {
 

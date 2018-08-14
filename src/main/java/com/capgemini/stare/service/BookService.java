@@ -1,8 +1,8 @@
-package com.capgemini.service;
+package com.capgemini.stare.service;
 
 import java.util.List;
 
-import com.capgemini.types.BookTO;
+import com.capgemini.stare.types.BookTO;
 
 public interface BookService {
 	List<BookTO> findAllBooks();

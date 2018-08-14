@@ -1,4 +1,4 @@
-package com.capgemini.dao.impl;
+package com.capgemini.stare.dao.impl;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import com.capgemini.dao.BookDao;
-import com.capgemini.domain.BookEntity;
+import com.capgemini.stare.dao.BookDao;
+import com.capgemini.stare.domain.BookEntity;
 
 @Repository
 public class BookDaoImpl extends AbstractDao<BookEntity, Long> implements BookDao {

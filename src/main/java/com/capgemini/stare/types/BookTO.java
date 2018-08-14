@@ -1,4 +1,4 @@
-package com.capgemini.types;
+package com.capgemini.stare.types;
 
 import java.util.HashSet;
 import java.util.Set;

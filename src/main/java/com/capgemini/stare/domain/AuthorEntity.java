@@ -1,7 +1,6 @@
-package com.capgemini.domain;
+package com.capgemini.stare.domain;
 
 import java.io.Serializable;
-import java.time.Year;
 
 import javax.persistence.*;
 

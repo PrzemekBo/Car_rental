@@ -1,4 +1,4 @@
-package com.capgemini.service;
+package com.capgemini.stare.service;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

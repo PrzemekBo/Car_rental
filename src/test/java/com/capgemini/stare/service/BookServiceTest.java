@@ -1,4 +1,4 @@
-package com.capgemini.service;
+package com.capgemini.stare.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -13,10 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.capgemini.types.AuthorTO;
-import com.capgemini.types.AuthorTO.AuthorTOBuilder;
-import com.capgemini.types.BookTO;
-import com.capgemini.types.BookTO.BookTOBuilder;
+import com.capgemini.stare.types.AuthorTO;
+import com.capgemini.stare.types.AuthorTO.AuthorTOBuilder;
+import com.capgemini.stare.types.BookTO;
+import com.capgemini.stare.types.BookTO.BookTOBuilder;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

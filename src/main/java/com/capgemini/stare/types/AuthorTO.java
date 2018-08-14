@@ -1,4 +1,4 @@
-package com.capgemini.types;
+package com.capgemini.stare.types;
 
 public class AuthorTO {
 

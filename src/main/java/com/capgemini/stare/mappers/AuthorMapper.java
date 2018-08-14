@@ -1,11 +1,11 @@
-package com.capgemini.mappers;
+package com.capgemini.stare.mappers;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.capgemini.domain.AuthorEntity;
-import com.capgemini.types.AuthorTO;
-import com.capgemini.types.AuthorTO.AuthorTOBuilder;
+import com.capgemini.stare.domain.AuthorEntity;
+import com.capgemini.stare.types.AuthorTO;
+import com.capgemini.stare.types.AuthorTO.AuthorTOBuilder;
 
 public class AuthorMapper {
 

@@ -1,8 +1,8 @@
-package com.capgemini.dao;
+package com.capgemini.stare.dao;
 
 import java.util.List;
 
-import com.capgemini.domain.BookEntity;
+import com.capgemini.stare.domain.BookEntity;
 
 public interface BookDao extends Dao<BookEntity, Long> {
 

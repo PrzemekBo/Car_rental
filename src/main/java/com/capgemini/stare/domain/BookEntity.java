@@ -1,4 +1,4 @@
-package com.capgemini.domain;
+package com.capgemini.stare.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

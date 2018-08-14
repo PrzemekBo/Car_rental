@@ -1,16 +1,17 @@
-package com.capgemini.nowe.entity;
+package com.capgemini.entity;
 
-
-import com.capgemini.nowe.enums.Profession;
 import com.sun.istack.internal.NotNull;
+import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-
+@Data
 @Entity
-@Table(name = "employee")
-public class EmployeeEntity {
+@Table(name = "customer")
+public class CustomerEntity {
+
 
 
     @Id
@@ -20,23 +21,15 @@ public class EmployeeEntity {
 
     @Column(length = 30, nullable = false)
     private String firstName;
+
     @Column(length = 35, nullable = false)
     private String lastName;
 
+    @Column(length = 40, nullable = false)
+    @NotNull
+    private String home;
+
     @NotNull
     private LocalDate birthDate;
-
-
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    private Profession profession;
-
-
-    @ManyToOne
-    @JoinColumn(name = "id_department")
-    private DepartmentEntity departmentEntity;
-
-
-
 
 }

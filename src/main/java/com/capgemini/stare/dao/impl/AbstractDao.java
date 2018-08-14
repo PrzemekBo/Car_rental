@@ -1,4 +1,4 @@
-package com.capgemini.dao.impl;
+package com.capgemini.stare.dao.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -11,8 +11,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 
-import com.capgemini.dao.Dao;
-
+import com.capgemini.stare.dao.Dao;
 
 @Transactional(Transactional.TxType.SUPPORTS)
 public abstract class AbstractDao<T, K extends Serializable> implements Dao<T, K> {

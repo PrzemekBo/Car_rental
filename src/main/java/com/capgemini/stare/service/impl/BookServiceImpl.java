@@ -1,4 +1,4 @@
-package com.capgemini.service.impl;
+package com.capgemini.stare.service.impl;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.capgemini.dao.BookDao;
-import com.capgemini.domain.BookEntity;
-import com.capgemini.mappers.BookMapper;
-import com.capgemini.service.BookService;
-import com.capgemini.types.BookTO;
+import com.capgemini.stare.dao.BookDao;
+import com.capgemini.stare.domain.BookEntity;
+import com.capgemini.stare.mappers.BookMapper;
+import com.capgemini.stare.service.BookService;
+import com.capgemini.stare.types.BookTO;
 
 @Service
 @Transactional(readOnly = true)
