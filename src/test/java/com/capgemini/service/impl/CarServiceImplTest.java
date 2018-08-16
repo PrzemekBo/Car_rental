@@ -52,12 +52,14 @@ public class CarServiceImplTest {
 
 
     }
+
     @Transactional
     @Test
     public void shouldFindCarByMark() {
 
 
         final String mark = "Toyota";
+
         //given
         CarDTO car = new CarDTOBuilder().withType("family").withMark(mark)
                 .withProductionYear(2006).withColor("Black").withEngineCapacity(200).withPower(60)
@@ -70,12 +72,43 @@ public class CarServiceImplTest {
         carService.addCar(car2);
 
         //when
-        List<CarDTO>cars=carService.findCarByMark(mark);
+        List<CarDTO> cars = carService.findCarByMark(mark);
         //then
         assertThat(cars.size()).isEqualTo(1);
         assertThat(cars.stream().anyMatch(c -> c.getMark().equals(mark))).isTrue();
 
     }
+
+
+    @Transactional
+    @Test
+    public void shouldFindByCarTypeAndMark() {
+
+
+        final String mark = "Toyota";
+        final String type = "family";
+
+        //given
+        CarDTO car = new CarDTOBuilder().withType(type).withMark(mark)
+                .withProductionYear(2006).withColor("Black").withEngineCapacity(200).withPower(60)
+                .withMileage(43324).build();
+
+        CarDTO car2 = new CarDTOBuilder().withType("carrying").withMark("BMW")
+                .withProductionYear(2006).withColor("Pink").withEngineCapacity(200).withPower(60)
+                .withMileage(43324).build();
+        carService.addCar(car);
+        carService.addCar(car2);
+
+        //when
+        List<CarDTO>cars=carService.findCarByTypeAndMark(type,mark);
+
+        //then
+        assertThat(cars.size()).isEqualTo(1);
+
+    }
+
+
+
 
     @Transactional
     @Test
@@ -146,7 +179,7 @@ public class CarServiceImplTest {
         assertThat(carService.findCarById(carToChangeColor.getId()).getColor()).isEqualTo(color);
 
 
-
+        //TODO delete all
 
 
 

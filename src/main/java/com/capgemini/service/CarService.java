@@ -13,6 +13,8 @@ public interface CarService {
 
     List<CarDTO> findCarByMark(String mark);
 
+    List<CarDTO> findCarByTypeAndMark(String type, String mark);
+
     CarDTO findCarById(Long id);
 
     CarDTO updateCar(CarDTO car);

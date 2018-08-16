@@ -39,6 +39,11 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public List<CarDTO> findCarByTypeAndMark(String type, String mark) {
+        return CarMapper.toCarTOList(carDao.findCarByTypeAndMark(type,mark));
+    }
+
+    @Override
     public CarDTO findCarById(Long id) {
         return CarMapper.toCarDTO(carDao.findOne(id));
     }
