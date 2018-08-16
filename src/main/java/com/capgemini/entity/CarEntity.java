@@ -27,7 +27,7 @@ public class CarEntity extends AbstractEntity {
     private String mark;
 
     @NotNull
-    private Year productionYear;
+    private Integer productionYear;
 
     @Column(length = 20)
     @NotNull
@@ -43,7 +43,9 @@ public class CarEntity extends AbstractEntity {
     private int mileage;
 
 
+/*
     @ManyToMany(mappedBy = "supportedCar", cascade = CascadeType.MERGE)
     private List<EmployeeEntity> guardianEmployees;
+*/
 
 }

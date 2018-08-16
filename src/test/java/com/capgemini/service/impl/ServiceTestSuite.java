@@ -1,11 +1,11 @@
-package com.capgemini.stare.service;
+package com.capgemini.service.impl;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ BookServiceTest.class })
+@SuiteClasses({CarServiceImplTest.class})
 public class ServiceTestSuite {
 
 }

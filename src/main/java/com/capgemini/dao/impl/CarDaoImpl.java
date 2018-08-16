@@ -24,7 +24,7 @@ public class CarDaoImpl extends AbstractDao<CarEntity, Long> implements CarDao {
         TypedQuery<CarEntity> query = entityManager.createQuery(
                 "select car from CarEntity car where upper(car.mark) like concat(upper(:mark),'%' ) ", CarEntity.class);
         query.setParameter("mark", mark);
-        return null;
+        return query.getResultList();
     }
 
     @Override
