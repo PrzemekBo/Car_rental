@@ -7,9 +7,10 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+
 @Entity
 @Table(name = "department")
+@Data
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@EntityListeners({Listener.class})
 public class DepartmentEntity extends AbstractEntity  {
@@ -25,6 +26,10 @@ public class DepartmentEntity extends AbstractEntity  {
     @Column(length = 12)
     @NotNull
     private String phoneNumber;
+
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<EmployeeEntity> employees;
 
 
 /*

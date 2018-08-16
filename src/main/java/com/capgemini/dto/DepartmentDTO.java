@@ -3,17 +3,23 @@ package com.capgemini.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@EqualsAndHashCode
 public class DepartmentDTO {
 
 
     private Long id;
     private String address;
     private String phoneNumber;
+
+  //  private List<EmployeeDTO> employees;
 
 
     public static DepartmentDTO.DepartmentDTOBuilder builder() {
@@ -24,6 +30,8 @@ public class DepartmentDTO {
         private Long id;
         private String address;
         private String phoneNumber;
+
+       // private List<EmployeeDTO> employees;
 
 
         public DepartmentDTOBuilder() {
@@ -45,8 +53,14 @@ public class DepartmentDTO {
             return this;
         }
 
+ /*       public DepartmentDTOBuilder withEmployees(List<EmployeeDTO> employees){
+            this.employees = employees;
+            return this;
+        }*/
+
+
         public DepartmentDTO build() {
-            return new DepartmentDTO(id, address, phoneNumber);
+            return new DepartmentDTO(id, address, phoneNumber/*,employees*/);
         }
     }
 

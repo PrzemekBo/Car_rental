@@ -37,13 +37,11 @@ public class DepartmentMapper {
 
     }
 
-    public static List<DepartmentDTO> toDepartmentDTOList(List<DepartmentDTO> departments) {
-        //return departments.stream().map(DepartmentMapper::toDepartmentDTO).collect(Collectors.toList());
-       // return departments.stream().map(DepartmentMapper::toDepartmentDTO).collect(Collectors.toList());
+    public static List<DepartmentDTO> toDepartmentDTOList(List<DepartmentEntity> departments) {
         return departments.stream()
                 .map(DepartmentMapper::toDepartmentDTO)
                 .collect(Collectors
                         .toList());
     }
-    }
+
 }
