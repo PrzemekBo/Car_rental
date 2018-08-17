@@ -2,8 +2,10 @@ package com.capgemini.dao.impl;
 
 import com.capgemini.dao.CarDao;
 import com.capgemini.entity.CarEntity;
+import com.capgemini.entity.EmployeeEntity;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -40,9 +42,14 @@ public class CarDaoImpl extends AbstractDao<CarEntity, Long> implements CarDao {
     }
 
     @Override
-    public List<CarEntity> findCarByGuardianEmployees(long caretakerId) {
-        return null;
+    public List<CarEntity> findCarByEmployeeSupervisor(long employeeSupervisorId) {
+        EmployeeEntity employee = entityManager.getReference(EmployeeEntity.class, employeeSupervisorId);
+        TypedQuery<CarEntity> query = entityManager.createQuery(
+                "select car from CarEntity car where :supervisor member of car.employees", CarEntity.class);
+        query.setParameter("supervisor", employee);
+        return query.getResultList();
     }
+
 
 
 }

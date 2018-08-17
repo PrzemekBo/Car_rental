@@ -61,12 +61,30 @@ public class CarMapper {
 */
 
 
-    public static Set<CarDTO> toCarTOList(Set<CarEntity> carEntities) {
+/*    public static Set<CarDTO> toCarTOList(Set<CarEntity> carEntities) {
         return carEntities.stream().map(CarMapper::toCarDTO).collect(Collectors.toSet());
+
+
+
+    }*/
+
+    public static Set<CarDTO> mapToDTO(Set<CarEntity> carEntities) {
+        return carEntities.stream().map(CarMapper::toCarDTO).collect(Collectors.toSet());
+    }
+
+    public static List<CarDTO> toCarTOList(List<CarEntity> cars) {
+        return cars.stream().map(CarMapper::toCarDTO).collect(Collectors.toList());
+    }
+
+    public static List<CarEntity> mapToEntities(List<CarDTO> carDTOS) {
+        return carDTOS.stream().map(CarMapper::toCarEntity).collect(Collectors.toList());
+        //return carDTOS.stream().map(CarMapper::toCarEntity).collect(Collectors.toSet());
     }
 
     public static Set<CarEntity> mapToEntities(Set<CarDTO> carDTOS) {
         return carDTOS.stream().map(CarMapper::toCarEntity).collect(Collectors.toSet());
     }
+
+
 
 }

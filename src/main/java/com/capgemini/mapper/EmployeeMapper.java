@@ -10,6 +10,7 @@ import com.capgemini.entity.EmployeeEntity;
 import com.capgemini.entity.ProfessionEntity;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EmployeeMapper {
@@ -47,7 +48,7 @@ public class EmployeeMapper {
                 .withBirthDatee(employeeEntity.getBirthDate())
                 .withProfessionDTO(ProfessionMapper.toProfessionDTO(employeeEntity.getProfession()))
                 .withDepartmentDTO(DepartmentMapper.toDepartmentDTO(employeeEntity.getDepartmentEntity()))
-                .withCarDTOS(CarMapper.toCarTOList(employeeEntity.getCars()))
+                .withCarDTOS(CarMapper.mapToDTO(employeeEntity.getCars()))
                 .build();
 
     }
@@ -62,4 +63,6 @@ public class EmployeeMapper {
     public static List<EmployeeEntity> toEmployeeEntityList(List<EmployeeDTO> employees) {
         return employees.stream().map(EmployeeMapper::toEmployeeEntity).collect(Collectors.toList());
     }
+
+
 }

@@ -1,11 +1,6 @@
 package com.capgemini.mapper;
 
-import com.capgemini.dto.DepartmentDTO;
-import com.capgemini.dto.EmployeeDTO;
 import com.capgemini.dto.ProfessionDTO;
-import com.capgemini.dto.ProfessionDTO.ProfessionDTOBuilder;
-import com.capgemini.entity.DepartmentEntity;
-import com.capgemini.entity.EmployeeEntity;
 import com.capgemini.entity.ProfessionEntity;
 
 import java.util.List;
@@ -27,7 +22,7 @@ public class ProfessionMapper {
 
 
     public static ProfessionDTO toProfessionDTO(ProfessionEntity professionEntity) {
-        if(professionEntity == null){
+        if (professionEntity == null) {
             return null;
         }
 
@@ -45,12 +40,6 @@ public class ProfessionMapper {
     public static List<ProfessionEntity> toProfesionEntityList(List<ProfessionDTO> positionTos) {
         return positionTos.stream().map(ProfessionMapper::toProfessionEntity).collect(Collectors.toList());
     }
-
-
-
-
-
-
 
 
 }

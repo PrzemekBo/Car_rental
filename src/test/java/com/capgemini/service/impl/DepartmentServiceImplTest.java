@@ -13,34 +13,30 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(properties = "spring.profiles.active=hsql")
 public class DepartmentServiceImplTest {
-
 
 
     @Autowired
     private DepartmentService departmentService;
 
 
-
-
     @Transactional
     @Test
     public void shouldFindDepartment() {
         //given
-        DepartmentDTO department= new DepartmentDTOBuilder()
+        DepartmentDTO department = new DepartmentDTOBuilder()
                 .withAddress("poznan")
                 .withPhoneNumber("32432434")
                 .build();
-       departmentService.addDepartment(department);
+        departmentService.addDepartment(department);
 
 
         //when
-        List<DepartmentDTO>departments=departmentService.findAll();
+        List<DepartmentDTO> departments = departmentService.findAll();
 
         //then
         assertThat(departments.size()).isEqualTo(1);
@@ -53,40 +49,40 @@ public class DepartmentServiceImplTest {
     public void shouldAddDepartment() {
 
         //given
-        DepartmentDTO department= new DepartmentDTOBuilder()
+        DepartmentDTO department = new DepartmentDTOBuilder()
                 .withAddress("poznan")
                 .withPhoneNumber("32432434")
                 .build();
-        DepartmentDTO addedDepartment=departmentService.addDepartment(department);
+        DepartmentDTO addedDepartment = departmentService.addDepartment(department);
 
 
         //when
-        DepartmentDTO selectedDepartment=departmentService.findDepartmentById(addedDepartment.getId());
+        DepartmentDTO selectedDepartment = departmentService.findDepartmentById(addedDepartment.getId());
 
         //then
         assertThat(selectedDepartment.getId()).isEqualTo(addedDepartment.getId());
 
 
-
     }
+
     @Transactional
     @Test
     public void shouldDeleteDepartamentById() {
         //given
-        DepartmentDTO department= new DepartmentDTOBuilder()
+        DepartmentDTO department = new DepartmentDTOBuilder()
                 .withAddress("poznan")
                 .withPhoneNumber("32432434")
                 .build();
-        DepartmentDTO department2= new DepartmentDTOBuilder()
+        DepartmentDTO department2 = new DepartmentDTOBuilder()
                 .withAddress("poznan")
                 .withPhoneNumber("32432434")
                 .build();
         departmentService.addDepartment(department);
-        DepartmentDTO departmentTODelete=departmentService.addDepartment(department2);
+        DepartmentDTO departmentTODelete = departmentService.addDepartment(department2);
 
         //when
         departmentService.deleteDepartment(departmentTODelete.getId());
-        List<DepartmentDTO>departmentDTOS=departmentService.findAll();
+        List<DepartmentDTO> departmentDTOS = departmentService.findAll();
 
         //then
         assertThat(departmentDTOS.size()).isEqualTo(1);
@@ -102,14 +98,14 @@ public class DepartmentServiceImplTest {
         String address = "Wwa";
         //given
 
-        DepartmentDTO department= new DepartmentDTOBuilder()
+        DepartmentDTO department = new DepartmentDTOBuilder()
                 .withAddress("poznan")
                 .withPhoneNumber("32432434")
                 .build();
-        DepartmentDTO savedDepartment=departmentService.addDepartment(department);
+        DepartmentDTO savedDepartment = departmentService.addDepartment(department);
 
         //when
-        DepartmentDTO selectedDepartment=departmentService.findDepartmentById(savedDepartment.getId());
+        DepartmentDTO selectedDepartment = departmentService.findDepartmentById(savedDepartment.getId());
         selectedDepartment.setAddress(address);
         departmentService.updateOutpost(selectedDepartment);
 
@@ -119,4 +115,4 @@ public class DepartmentServiceImplTest {
 
     }
 
-    }
+}

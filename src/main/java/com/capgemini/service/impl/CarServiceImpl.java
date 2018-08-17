@@ -3,6 +3,7 @@ package com.capgemini.service.impl;
 
 import com.capgemini.dao.CarDao;
 import com.capgemini.dto.CarDTO;
+import com.capgemini.dto.EmployeeDTO;
 import com.capgemini.entity.CarEntity;
 import com.capgemini.mapper.CarMapper;
 import com.capgemini.service.CarService;
@@ -58,6 +59,13 @@ public class CarServiceImpl implements CarService {
     public void deleteCar(Long id) {
         carDao.delete(id);
     }
+
+    @Override
+    public List<CarDTO> findCarBySupervisor(long supervisorId) {
+        List<CarEntity> cars = carDao.findCarByEmployeeSupervisor(supervisorId);
+        return CarMapper.toCarTOList(cars);
+    }
+
 
     @Override
     public void deleteAll()  {

@@ -1,6 +1,7 @@
 package com.capgemini.dao;
 
 import com.capgemini.entity.CarEntity;
+import com.capgemini.entity.EmployeeEntity;
 
 import java.util.List;
 
@@ -14,5 +15,8 @@ public interface CarDao extends Dao<CarEntity, Long>{
     List<CarEntity> findCarByTypeAndMark(String type, String mark);
 
 
-    List<CarEntity> findCarByGuardianEmployees(long caretakerId);
+    List<CarEntity> findCarByEmployeeSupervisor(long employeeSupervisorId);
+
+
+  //  List<CarEntity> findCarByGuardianEmployees(long caretakerId);
 }

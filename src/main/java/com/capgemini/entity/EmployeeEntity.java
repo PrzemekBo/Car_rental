@@ -44,7 +44,7 @@ public class EmployeeEntity extends AbstractEntity {
 
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "employees_cars",
+    @JoinTable(name = "supervisor",
             joinColumns = { @JoinColumn(name = "employee", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "car", nullable = false, updatable = false)})
     private Set<CarEntity> cars=new HashSet<>();

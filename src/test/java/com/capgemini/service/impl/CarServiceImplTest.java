@@ -13,9 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
+
+@SpringBootTest(properties = "spring.profiles.active=hsql")
 @RunWith(SpringRunner.class)
-@SpringBootTest
+
 public class CarServiceImplTest {
 
 
@@ -186,5 +189,7 @@ public class CarServiceImplTest {
     }
 
 
-
+    @Test
+    public void findCarBySupervisor() {
+    }
 }
