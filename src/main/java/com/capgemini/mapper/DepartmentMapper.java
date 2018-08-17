@@ -2,9 +2,12 @@ package com.capgemini.mapper;
 
 import com.capgemini.dto.DepartmentDTO;
 import com.capgemini.dto.DepartmentDTO.DepartmentDTOBuilder;
+import com.capgemini.dto.EmployeeDTO;
 import com.capgemini.entity.DepartmentEntity;
+import com.capgemini.entity.EmployeeEntity;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DepartmentMapper {
@@ -43,5 +46,8 @@ public class DepartmentMapper {
                 .collect(Collectors
                         .toList());
     }
+
+
+
 
 }

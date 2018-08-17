@@ -5,7 +5,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -29,21 +31,23 @@ public class EmployeeEntity extends AbstractEntity {
 
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "id_profession", nullable = false)
     private ProfessionEntity profession;
 
 
-    @ManyToMany
-    @JoinColumn(name = "id_department")
-    private List<DepartmentEntity> departmentEntity;
 
 
-    @ManyToMany
-    @JoinTable(name = "supported_car",
-            joinColumns = { @JoinColumn(name = "id_employee") },
-            inverseJoinColumns = {@JoinColumn(name = "id_car") })
-    private List<CarEntity> supportedCar;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private DepartmentEntity departmentEntity;
+
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "employees_cars",
+            joinColumns = { @JoinColumn(name = "employee", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "car", nullable = false, updatable = false)})
+    private Set<CarEntity> cars=new HashSet<>();
 
 
 

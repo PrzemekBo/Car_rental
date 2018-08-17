@@ -25,7 +25,7 @@ public class ProfessionEntity {
     @NotNull
     private String professionName;
 
-
+/*
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "profession")
-    private Set<EmployeeEntity> employee = new HashSet<>();
+    private Set<EmployeeEntity> employee = new HashSet<>();*/
 }

@@ -64,8 +64,8 @@ public class DepartmentServiceImplTest {
         DepartmentDTO selectedDepartment=departmentService.findDepartmentById(addedDepartment.getId());
 
         //then
-        //TODO
-     // assertThat(selectedDepartment.getId()).;
+        assertThat(selectedDepartment.getId()).isEqualTo(addedDepartment.getId());
+
 
 
     }
