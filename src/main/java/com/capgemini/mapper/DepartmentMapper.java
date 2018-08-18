@@ -22,11 +22,12 @@ public class DepartmentMapper {
         departmentEntity.setAddress(departmentDTO.getAddress());
         departmentEntity.setPhoneNumber(departmentDTO.getPhoneNumber());
 
+
         return departmentEntity;
 
     }
 
-
+//TODO brak informacji o prcownikach a powinny byc
     public static DepartmentDTO toDepartmentDTO(DepartmentEntity departmentEntity) {
         if(departmentEntity == null){
             return null;

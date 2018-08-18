@@ -1,7 +1,11 @@
 package com.capgemini.service.impl;
 
+import com.capgemini.dto.CarDTO;
 import com.capgemini.dto.DepartmentDTO;
 import com.capgemini.dto.DepartmentDTO.DepartmentDTOBuilder;
+import com.capgemini.dto.EmployeeDTO;
+import com.capgemini.dto.EmployeeDTO.EmployeeDTOBuilder;
+import com.capgemini.dto.ProfessionDTO;
 import com.capgemini.service.DepartmentService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +14,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -115,4 +123,39 @@ public class DepartmentServiceImplTest {
 
     }
 
+    @Test
+    @Transactional
+    public void shouldAddEmployeeToDepartment() {
+
+        DepartmentDTO departmentDTO= new DepartmentDTOBuilder()
+        DepartmentDTO department = new DepartmentDTOBuilder()
+                .withAddress("poznan")
+                .withPhoneNumber("32432434")
+                .withEmployees(null)
+                .build();
+
+        DepartmentDTO savedDepartment= departmentService.addDepartment(departmentDTO);
+
+        EmployeeDTO employeeDTO=  new EmployeeDTOBuilder()
+                .withFirstName("TOMEK")
+                .withLastName("Pods")
+                .withBirthDatee(LocalDate.parse("1986-04-08 12:30"))
+                .withProfessionDTO("manager")
+                .withDepartmentDTO(null)
+
+                .
+/*        EmployeeDTO employee = new EmployeeDTO().builder()
+                .firstName("Tomek")
+                .lastName("Bocer")
+                .birthDate(new Date(19910408)
+                .
+    }
+
+
+    private String firstName;
+    private String lastName;
+    private LocalDate birthDate;
+    private ProfessionDTO professionDTO;
+    private DepartmentDTO departmentDTO;
+    private Set<CarDTO> carDTOS = new HashSet<>();*/
 }

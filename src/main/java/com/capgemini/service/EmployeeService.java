@@ -6,4 +6,7 @@ public interface EmployeeService {
 
 
     EmployeeDTO findEmployeeById(Long id);
+
+
+    EmployeeDTO addEmployee(EmployeeDTO employeeDTO);
 }
