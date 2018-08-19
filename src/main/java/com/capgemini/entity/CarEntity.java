@@ -5,11 +5,13 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.Year;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
 @Data
 public class CarEntity extends AbstractEntity {
 
@@ -27,20 +29,24 @@ public class CarEntity extends AbstractEntity {
     private String mark;
 
     @NotNull
-    private Integer productionYear;
+    private Year productionYear;
 
     @Column(length = 20)
     @NotNull
     private String color;
 
     @NotNull
-    private int engineCapacity;
+    private Integer engineCapacity;
 
     @NotNull
-    private int power;
+    private Integer power;
 
     @NotNull
-    private int mileage;
+    private Integer mileage;
+
+    @OneToMany(mappedBy = "carEntity", cascade = CascadeType.REMOVE)
+    private List<RentEntity> rents;
+
 
 
 /*

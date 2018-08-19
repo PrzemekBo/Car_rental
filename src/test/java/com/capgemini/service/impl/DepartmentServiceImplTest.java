@@ -127,14 +127,14 @@ public class DepartmentServiceImplTest {
     @Transactional
     public void shouldAddEmployeeToDepartment() {
 
-        DepartmentDTO departmentDTO= new DepartmentDTOBuilder()
+   /*     DepartmentDTO departmentDTO = new DepartmentDTOBuilder()
         DepartmentDTO department = new DepartmentDTOBuilder()
                 .withAddress("poznan")
                 .withPhoneNumber("32432434")
                 .withEmployees(null)
                 .build();
-
-        DepartmentDTO savedDepartment= departmentService.addDepartment(departmentDTO);
+*/
+/*        DepartmentDTO savedDepartment= departmentService.addDepartment(departmentDTO);
 
         EmployeeDTO employeeDTO=  new EmployeeDTOBuilder()
                 .withFirstName("TOMEK")
@@ -143,7 +143,7 @@ public class DepartmentServiceImplTest {
                 .withProfessionDTO("manager")
                 .withDepartmentDTO(null)
 
-                .
+                .*/
 /*        EmployeeDTO employee = new EmployeeDTO().builder()
                 .firstName("Tomek")
                 .lastName("Bocer")
@@ -158,4 +158,5 @@ public class DepartmentServiceImplTest {
     private ProfessionDTO professionDTO;
     private DepartmentDTO departmentDTO;
     private Set<CarDTO> carDTOS = new HashSet<>();*/
+    }
 }

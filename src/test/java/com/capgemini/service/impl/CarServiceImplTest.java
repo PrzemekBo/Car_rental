@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Year;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,10 +39,10 @@ public class CarServiceImplTest {
         final String type = "family";
 
         CarDTO car = new CarDTOBuilder().withType(type).withMark("BMW")
-                .withProductionYear(2006).withColor("Black").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(200).withPower(60)
                 .withMileage(43324).build();
         CarDTO car2 = new CarDTOBuilder().withType("carrying").withMark("BMW")
-                .withProductionYear(2006).withColor("Black").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(200).withPower(60)
                 .withMileage(43324).build();
 
         carService.addCar(car);
@@ -65,10 +66,10 @@ public class CarServiceImplTest {
 
         //given
         CarDTO car = new CarDTOBuilder().withType("family").withMark(mark)
-                .withProductionYear(2006).withColor("Black").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(200).withPower(60)
                 .withMileage(43324).build();
         CarDTO car2 = new CarDTOBuilder().withType("carrying").withMark("BMW")
-                .withProductionYear(2006).withColor("Pink").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Pink").withEngineCapacity(200).withPower(60)
                 .withMileage(43324).build();
 
         carService.addCar(car);
@@ -93,11 +94,11 @@ public class CarServiceImplTest {
 
         //given
         CarDTO car = new CarDTOBuilder().withType(type).withMark(mark)
-                .withProductionYear(2006).withColor("Black").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(200).withPower(60)
                 .withMileage(43324).build();
 
         CarDTO car2 = new CarDTOBuilder().withType("carrying").withMark("BMW")
-                .withProductionYear(2006).withColor("Pink").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Pink").withEngineCapacity(200).withPower(60)
                 .withMileage(43324).build();
         carService.addCar(car);
         carService.addCar(car2);
@@ -119,7 +120,7 @@ public class CarServiceImplTest {
 
         //given
         CarDTO car = new CarDTOBuilder().withType("Family").withMark("BMW")
-                .withProductionYear(2006).withColor("Black").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(200).withPower(60)
                 .withMileage(43324).build();
         CarDTO savedCar = carService.addCar(car);
 
@@ -141,11 +142,11 @@ public class CarServiceImplTest {
 
         //given
         CarDTO car = new CarDTOBuilder().withType(type).withMark("BMW")
-                .withProductionYear(2006).withColor("Black").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(200).withPower(60)
                 .withMileage(43324).build();
 
         CarDTO car2 = new CarDTOBuilder().withType(type).withMark("Toyota")
-                .withProductionYear(2006).withColor("Black").withEngineCapacity(400).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(400).withPower(60)
                 .withMileage(43324).build();
 
         carService.addCar(car);
@@ -169,7 +170,7 @@ public class CarServiceImplTest {
 
         //given
         CarDTO car = new CarDTOBuilder().withType("family").withMark("BMW")
-                .withProductionYear(2006).withColor("Blue").withEngineCapacity(200).withPower(60)
+                .withProductionYear(Year.parse("2006")).withColor("Blue").withEngineCapacity(200).withPower(60)
                 .withMileage(433824).build();
         CarDTO addedCar=carService.addCar(car);
 

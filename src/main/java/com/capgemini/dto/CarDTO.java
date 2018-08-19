@@ -18,11 +18,11 @@ public class CarDTO {
     private Long id;
     private String type;
     private String mark;
-    private Integer productionYear;
+    private Year productionYear;
     private String color;
-    private int engineCapacity;
-    private int power;
-    private int mileage;
+    private Integer engineCapacity;
+    private Integer power;
+    private Integer mileage;
   //  private List<EmployeeEntity> guardianEmployees;
 
 
@@ -35,11 +35,11 @@ public class CarDTO {
         private Long id;
         private String type;
         private String mark;
-        private Integer productionYear;
+        private Year productionYear;
         private String color;
-        private int engineCapacity;
-        private int power;
-        private int mileage;
+        private Integer engineCapacity;
+        private Integer power;
+        private Integer mileage;
         //private List<EmployeeEntity> guardianEmployees;
 
         public CarDTOBuilder() {
@@ -63,7 +63,7 @@ public class CarDTO {
             return this;
 
         }
-        public CarDTOBuilder withProductionYear(Integer productionYear){
+        public CarDTOBuilder withProductionYear(Year productionYear){
             this.productionYear=productionYear;
             return this;
          }
@@ -73,17 +73,17 @@ public class CarDTO {
             return this;
         }
 
-        public CarDTOBuilder withEngineCapacity(int engineCapacity) {
+        public CarDTOBuilder withEngineCapacity(Integer engineCapacity) {
             this.engineCapacity = engineCapacity;
             return this;
         }
 
-        public CarDTOBuilder withPower(int power) {
+        public CarDTOBuilder withPower(Integer power) {
             this.power = power;
             return this;
         }
 
-        public CarDTOBuilder withMileage(int mileage) {
+        public CarDTOBuilder withMileage(Integer mileage) {
             this.mileage = mileage;
             return this;
         }
