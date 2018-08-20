@@ -333,6 +333,44 @@ public class CarServiceImplTest {
 
     }
 
+    @Test
+    @Transactional
+    public void shouldFindCarsRentedInTimePeriod() {
+
+        Date rentDate = new Date(5000L);
+        Date returnDate = new Date(10000L);
+
+        RentDTO rentDTO = new RentDTO().builder().cost(2000).rentDate(rentDate).returnDate(returnDate)
+                .build();
+        RentDTO newRent = rentService.addRent(rentDTO);
+
+
+        CarDTO car = new CarDTOBuilder().withType("family").withMark("BMW")
+                .withProductionYear(Year.parse("2006")).withColor("Blue").withEngineCapacity(200).withPower(60)
+                .withMileage(433824).build();
+        CarDTO newCar=carService.addCar(car);
+
+
+        CustomerDTO customerDTO= new CustomerDTO.CustomerDTOBuilder()
+                .withFirstName("Adam")
+                .withFirstName("Bok")
+                .withHome("Poznan")
+                .withCreditCardNumber("1234567890123456")
+                .build();
+
+        CustomerDTO newCustomer =customerService.addCustomer(customerDTO);
+
+        //when
+        carService.createNewRent(newCar, newRent, newCustomer);
+        List<CarDTO> cars = carService.findCarsRentedInTimePeriod(new Date(2000L), new Date(8000L));
+
+        //then
+        assertThat(cars.size()).isEqualTo(1);
+
+
+    }
+
+
 
 
 /*
@@ -391,4 +429,7 @@ public class CarServiceImplTest {
 
 
     }*/
+
+
+
 }

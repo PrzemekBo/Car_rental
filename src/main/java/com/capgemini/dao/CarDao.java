@@ -3,6 +3,7 @@ package com.capgemini.dao;
 import com.capgemini.entity.CarEntity;
 import com.capgemini.entity.EmployeeEntity;
 
+import java.util.Date;
 import java.util.List;
 
 public interface CarDao extends Dao<CarEntity, Long>{
@@ -16,6 +17,10 @@ public interface CarDao extends Dao<CarEntity, Long>{
 
         //TODo nazwa
     List<CarEntity> findCarsRentedByMoreThanTenCustomer();
+
+    List<CarEntity> findCarsRentedInTimePeriod(Date rentDate, Date returnDate);
+
+
 
 /*
     void addCarToEmployee(CarEntity carEntity, EmployeeEntity employeeEntity);

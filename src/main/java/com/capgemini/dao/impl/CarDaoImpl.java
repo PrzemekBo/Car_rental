@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.util.Date;
 import java.util.List;
 
 
@@ -44,8 +45,19 @@ public class CarDaoImpl extends AbstractDao<CarEntity, Long> implements CarDao {
     @Override
     public List<CarEntity> findCarsRentedByMoreThanTenCustomer() {
         TypedQuery<CarEntity> query = entityManager.createQuery(
-                "select car from CarEntity car join car.rent c group by car.id" +
+                "select car from CarEntity car join car.rents c group by car.id" +
                         " having count(distinct c.customerId.id)>10", CarEntity.class);
+
+        return query.getResultList();
+    }
+
+    @Override
+    public List<CarEntity> findCarsRentedInTimePeriod(Date rentDate, Date returnDate) {
+        TypedQuery<CarEntity> query = entityManager.createQuery(
+                "select car from CarEntity car, RentEntity rent where rent.carId = car.id " +
+                        "and rent.rentDate<:returnDate and rent.returnDate>:rentDate", CarEntity.class);
+        query.setParameter("rentDate", rentDate);
+        query.setParameter("returnDate", returnDate);
 
         return query.getResultList();
     }

@@ -219,6 +219,10 @@ public class CarServiceImpl implements CarService {
         return CarMapper.toCarTOList(carDao.findCarsRentedByMoreThanTenCustomer());
     }
 
+    @Override
+    public List<CarDTO> findCarsRentedInTimePeriod(Date rentDate, Date returnDate) {
+        return CarMapper.toCarTOList(carDao.findCarsRentedInTimePeriod(rentDate, returnDate));
+    }
 
 
 }

@@ -6,6 +6,7 @@ import com.capgemini.dto.DepartmentDTO.DepartmentDTOBuilder;
 import com.capgemini.dto.EmployeeDTO;
 import com.capgemini.dto.EmployeeDTO.EmployeeDTOBuilder;
 import com.capgemini.aWyw.ProfessionDTO;
+import com.capgemini.entity.EmployeeSearchCriteria;
 import com.capgemini.service.CarService;
 import com.capgemini.service.DepartmentService;
 import com.capgemini.service.EmployeeService;
@@ -340,6 +341,59 @@ public class DepartmentServiceImplTest {
         assertThat(employees3.size()).isEqualTo(1);
 
 
+    }
+
+
+    @Test
+    @javax.transaction.Transactional
+    public void shouldReturnWorkersByFindingThemByDifferentParams() {
+
+        String salesmane = "salesmane";
+        String deirector = "director";
+
+
+
+        EmployeeDTO employeeDTO=  new EmployeeDTOBuilder()
+                .withFirstName("TOMEK")
+                .withLastName("Pods")
+                .withBirthDatee(new Date())
+                .withProfession(salesmane)
+                .build();
+
+
+        EmployeeDTO employeeDTO2=  new EmployeeDTOBuilder()
+                .withFirstName("TOMEK")
+                .withLastName("Pods")
+                .withBirthDatee(new Date())
+                .withProfession(deirector)
+                .build();
+        EmployeeDTO savedEmployee = employeeService.addEmployee(employeeDTO);
+        EmployeeDTO savedEmployee2 = employeeService.addEmployee(employeeDTO2);
+
+
+        DepartmentDTO departmentDTO = new DepartmentDTOBuilder()
+                .withAddress("poznan")
+                .withPhoneNumber("32432434")
+                .build();
+        DepartmentDTO saveDepartmentDTO = departmentService.addDepartment(departmentDTO);
+        departmentService.addEmployeeToDepartment(saveDepartmentDTO, savedEmployee);
+
+
+        CarDTO car = new CarDTO.CarDTOBuilder().withType("family").withMark("BMW")
+                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(200).withPower(60)
+                .withMileage(43324).build();
+        CarDTO savedCar = carService.addCar(car);
+
+        carService.addGuardianToCar(savedCar, savedEmployee);
+
+        EmployeeSearchCriteria employeeSearchCriteria = new EmployeeSearchCriteria();
+        employeeSearchCriteria.setProfession(salesmane);
+        employeeSearchCriteria.setDepartmentEntity(saveDepartmentDTO.getId());
+        employeeSearchCriteria.setCarEntity(savedCar.getId());
+
+        List<EmployeeDTO> employees = employeeService.findWorkersByMultiParams(employeeSearchCriteria);
+
+        assertThat(employees.size()).isEqualTo(1);
     }
 
 
