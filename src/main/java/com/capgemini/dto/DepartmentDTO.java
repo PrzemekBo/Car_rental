@@ -32,7 +32,7 @@ public class DepartmentDTO {
         private String address;
         private String phoneNumber;
 
-        private List<Long> employees=new ArrayList<>();
+        private List<Long> employees = new ArrayList<>();
 
 
         public DepartmentDTOBuilder() {
@@ -54,14 +54,14 @@ public class DepartmentDTO {
             return this;
         }
 
-        public DepartmentDTOBuilder withEmployees(List<Long> employees){
+        public DepartmentDTOBuilder withEmployees(List<Long> employees) {
             this.employees = employees;
             return this;
         }
 
 
         public DepartmentDTO build() {
-            return new DepartmentDTO(id, address, phoneNumber,employees);
+            return new DepartmentDTO(id, address, phoneNumber, employees);
         }
     }
 

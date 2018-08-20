@@ -7,7 +7,6 @@ import com.capgemini.entity.RentEntity;
 public class RentMapper {
 
 
-
     public static RentEntity toRentEntity(RentDTO rentDTO) {
         if (rentDTO == null) {
             return null;
@@ -23,17 +22,15 @@ public class RentMapper {
     }
 
 
-
     public static RentDTO toRentDTO(RentEntity rentEntity) {
         if (rentEntity == null) {
             return null;
         }
-        RentDTOBuilder rentDTOBuilder= new RentDTO().builder()
+        RentDTOBuilder rentDTOBuilder = new RentDTO().builder()
                 .id(rentEntity.getId())
                 .cost(rentEntity.getCost())
                 .rentDate(rentEntity.getRentDate())
                 .returnDate(rentEntity.getReturnDate());
-
 
 
         if (rentEntity.getCustomerId() != null) {
@@ -54,10 +51,6 @@ public class RentMapper {
 
         return rentDTOBuilder.build();
     }
-
-
-
-
 
 
 }

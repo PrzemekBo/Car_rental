@@ -21,7 +21,7 @@ public class CustomerEntity {
     private Long id;
 
 
-    @Column(length = 30 )
+    @Column(length = 30)
     private String firstName;
 
     @Column(length = 35)
@@ -32,7 +32,7 @@ public class CustomerEntity {
     private String home;
 
 
-    @Column( length = 24)
+    @Column(length = 24)
     private String creditCardNumber;
 
     @NotNull
@@ -40,8 +40,6 @@ public class CustomerEntity {
 
     @OneToMany
     private List<RentEntity> rent;
-
-
 
 
     public void setId(Long id) {

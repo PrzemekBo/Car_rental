@@ -14,14 +14,15 @@ import com.capgemini.entity.CustomerEntity;
 import com.capgemini.entity.EmployeeEntity;
 import com.capgemini.entity.RentEntity;
 import com.capgemini.mapper.CarMapper;
-import com.capgemini.mapper.EmployeeMapper;
 import com.capgemini.service.CarService;
 import com.capgemini.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -34,7 +35,6 @@ public class CarServiceImpl implements CarService {
     private CustomerDao customerDao;
 
 
-
     @Autowired
     public CarServiceImpl(CarDao carDao, EmployeeService employeeService, EmployeeDao employeeDao, RentDao rentDao, CustomerDao customerDao) {
         this.carDao = carDao;
@@ -45,11 +45,9 @@ public class CarServiceImpl implements CarService {
     }
 
 
-
-
     @Override
     public CarDTO addCar(CarDTO car) {
-        CarEntity carEntity=carDao.save(CarMapper.toCarEntity(car));
+        CarEntity carEntity = carDao.save(CarMapper.toCarEntity(car));
         return CarMapper.toCarDTO(carEntity);
     }
 
@@ -66,7 +64,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<CarDTO> findCarByTypeAndMark(String type, String mark) {
-        return CarMapper.toCarTOList(carDao.findCarByTypeAndMark(type,mark));
+        return CarMapper.toCarTOList(carDao.findCarByTypeAndMark(type, mark));
     }
 
     @Override
@@ -86,9 +84,10 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<CarDTO> findAllCars() { {
-        return CarMapper.toCarTOList(carDao.findAll());
-    }
+    public List<CarDTO> findAllCars() {
+        {
+            return CarMapper.toCarTOList(carDao.findAll());
+        }
     }
 
     @Override
@@ -96,14 +95,14 @@ public class CarServiceImpl implements CarService {
         List<EmployeeDTO> employees = findEmployeesByCar(car);
         List<EmployeeEntity> employeeEntities = new ArrayList<>();
 
-        for(EmployeeDTO e: employees){
+        for (EmployeeDTO e : employees) {
             employeeEntities.add(employeeDao.findOne(e.getId()));
         }
 
         CarEntity carEntity = carDao.findOne(car.getId());
         EmployeeEntity addedEmployee = employeeDao.findOne(employee.getId());
         List<CarEntity> carEntities = addedEmployee.getCars();
-        if(carEntities == null){
+        if (carEntities == null) {
             carEntities = new ArrayList<>();
         }
         carEntities.add(carEntity);
@@ -121,16 +120,15 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<EmployeeDTO> findEmployeesByCar(CarDTO car) {
         List<Long> employees;
-        if(car.getGuardians() != null){
+        if (car.getGuardians() != null) {
             employees = car.getGuardians();
-        }
-        else {
+        } else {
             employees = new LinkedList<>();
         }
 
         List<EmployeeDTO> employeeDTOS = new ArrayList<>();
 
-        for(Long id: employees){
+        for (Long id : employees) {
             employeeDTOS.add(employeeService.findEmployeeById(id));
         }
 
@@ -142,14 +140,13 @@ public class CarServiceImpl implements CarService {
         List<Long> cars;
         List<CarDTO> carDTOS = new ArrayList<>();
 
-        if(employee.getCars() != null){
+        if (employee.getCars() != null) {
             cars = employee.getCars();
-        }
-        else {
+        } else {
             cars = new LinkedList<>();
         }
 
-        for(Long id: cars){
+        for (Long id : cars) {
             carDTOS.add(findCarById(id));
         }
 
@@ -164,17 +161,9 @@ public class CarServiceImpl implements CarService {
 
 
 
-/*
-    @Override
-    public List<CarDTO> findCarBySupervisor(long supervisorId) {
-        List<CarEntity> cars = carDao.findCarByEmployeeSupervisor(supervisorId);
-        return CarMapper.toCarTOList(cars);
-    }
-*/
-
 
     @Override
-    public void deleteAll()  {
+    public void deleteAll() {
         carDao.deleteAll();
     }
 

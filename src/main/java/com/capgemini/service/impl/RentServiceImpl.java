@@ -21,7 +21,7 @@ public class RentServiceImpl implements RentService {
 
 
     @Override
-    public RentDTO findRenttById(Long id)  {
+    public RentDTO findRenttById(Long id) {
         return RentMapper.toRentDTO(rentDao.findOne(id));
     }
 

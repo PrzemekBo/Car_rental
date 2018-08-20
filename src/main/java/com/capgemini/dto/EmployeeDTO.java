@@ -25,7 +25,6 @@ public class EmployeeDTO {
     private List<Long> cars;
 
 
-
     public static EmployeeDTO.EmployeeDTOBuilder builder() {
         return new EmployeeDTO.EmployeeDTOBuilder();
     }
@@ -38,7 +37,6 @@ public class EmployeeDTO {
         private String lastName;
         private Date birthDate;
         private String profession;
-        // private DepartmentDTO departmentDTO;
         private Long departmentId;
         private List<Long> cars;
 

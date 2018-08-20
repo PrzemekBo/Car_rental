@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 
-public class EmployeeDaoImpl extends  AbstractDao<EmployeeEntity,Long>implements EmployeeDao {
+public class EmployeeDaoImpl extends AbstractDao<EmployeeEntity, Long> implements EmployeeDao {
     @Override
     public List<EmployeeEntity> findEmployeeByDepartment(DepartmentEntity departmentId) {
         TypedQuery<EmployeeEntity> query = entityManager.createQuery(

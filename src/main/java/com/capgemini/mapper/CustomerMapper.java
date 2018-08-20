@@ -3,10 +3,7 @@ package com.capgemini.mapper;
 import com.capgemini.dto.CustomerDTO;
 import com.capgemini.dto.CustomerDTO.CustomerDTOBuilder;
 import com.capgemini.entity.CustomerEntity;
-import com.capgemini.entity.RentEntity;
 
-import java.util.Date;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class CustomerMapper {
@@ -25,24 +22,24 @@ public class CustomerMapper {
         return customerEntity;
     }
 
-        public static CustomerDTO toCustomerTO(CustomerEntity customerEntity) {
-            if(customerEntity == null){
-                return null;
-            }
-
-            CustomerDTOBuilder customerDTOBuilder = new CustomerDTOBuilder()
-                    .withId(customerEntity.getId())
-                    .withFirstName(customerEntity.getFirstName())
-                    .withLastName(customerEntity.getLastName())
-                    .withHome(customerEntity.getHome())
-                    .withCreditCardNumber(customerEntity.getCreditCardNumber());
-
-
-            if (customerEntity.getRent() != null){
-                customerDTOBuilder = customerDTOBuilder.withRent(customerEntity.getRent().stream().map(w -> w.getId()).collect(Collectors.toList()));
-            }
-
-            return customerDTOBuilder.build();
+    public static CustomerDTO toCustomerTO(CustomerEntity customerEntity) {
+        if (customerEntity == null) {
+            return null;
         }
+
+        CustomerDTOBuilder customerDTOBuilder = new CustomerDTOBuilder()
+                .withId(customerEntity.getId())
+                .withFirstName(customerEntity.getFirstName())
+                .withLastName(customerEntity.getLastName())
+                .withHome(customerEntity.getHome())
+                .withCreditCardNumber(customerEntity.getCreditCardNumber());
+
+
+        if (customerEntity.getRent() != null) {
+            customerDTOBuilder = customerDTOBuilder.withRent(customerEntity.getRent().stream().map(w -> w.getId()).collect(Collectors.toList()));
+        }
+
+        return customerDTOBuilder.build();
+    }
 
 }

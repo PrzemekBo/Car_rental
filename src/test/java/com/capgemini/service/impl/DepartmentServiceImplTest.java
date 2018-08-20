@@ -5,7 +5,6 @@ import com.capgemini.dto.DepartmentDTO;
 import com.capgemini.dto.DepartmentDTO.DepartmentDTOBuilder;
 import com.capgemini.dto.EmployeeDTO;
 import com.capgemini.dto.EmployeeDTO.EmployeeDTOBuilder;
-import com.capgemini.aWyw.ProfessionDTO;
 import com.capgemini.entity.EmployeeSearchCriteria;
 import com.capgemini.service.CarService;
 import com.capgemini.service.DepartmentService;
@@ -130,67 +129,6 @@ public class DepartmentServiceImplTest {
 
 
     }
-
-/*
-    @Test
-    @Transactional
-    public void shouldAddEmployeeToDepartment() {
-
-/*
-      //given
-      DepartmentDTO departmentDTO = new DepartmentDTOBuilder()
-                .withAddress("poznan")
-                .withPhoneNumber("32432434")
-                .build();
-     // DepartmentDTO savedDepartment= departmentService.addDepartment(departmentDTO);
-
-        DepartmentDTO testDepartment=departmentService.addDepartment(departmentDTO);
-
-
-
-
-        ProfessionDTO professionDTO = new ProfessionDTO.ProfessionDTOBuilder()
-                .withProfessionName("manager")
-                .build();
-
-        EmployeeDTO employeeDTO=  new EmployeeDTOBuilder()
-                .withFirstName("TOMEK")
-                .withLastName("Pods")
-                .withBirthDatee(now())
-                .withProfessionDTO(professionDTO)
-                .withDepartmentDTO(departmentDTO)
-                .withCarDTOS(new ArrayList<>())
-                .build();
-
-        EmployeeDTO testEmployee = employeeService.addEmployee(employeeDTO);
-
-        //When
-        departmentService.addEmployeeToDepartment(testDepartment, testEmployee);
-
-
-        //Then
-        EmployeeDTO employeeById = employeeService.findEmployeeById(testEmployee.getId());
-        assertEquals(testDepartment.getAddress(), employeeById.getDepartmentDTO().getAddress());
-    }
-
-*/
-
-
-
-/*        EmployeeDTO employee = new EmployeeDTO().builder()
-                .firstName("Tomek")
-                .lastName("Bocer")
-                .birthDate(new Date(19910408)
-                .
-    }
-
-
-    private String firstName;
-    private String lastName;
-    private LocalDate birthDate;
-    private ProfessionDTO professionDTO;
-    private DepartmentDTO departmentDTO;
-    private Set<CarDTO> carDTOS = new HashSet<>();*/
 
     @Test
     @Transactional
@@ -335,7 +273,6 @@ public class DepartmentServiceImplTest {
         List<EmployeeDTO> employees3 = departmentService.findEmployeesByDepartmentAndCar(departmentService.findDepartmentById(saveDepartmentDTO2.getId()), carService.findCarById(savedCar2.getId()));
 
 
-        //TODo sprawdyic
         assertThat(employees.size()).isEqualTo(1);
         assertThat(employees2.size()).isEqualTo(1);
         assertThat(employees3.size()).isEqualTo(1);
@@ -344,57 +281,6 @@ public class DepartmentServiceImplTest {
     }
 
 
-    @Test
-    @javax.transaction.Transactional
-    public void shouldReturnWorkersByFindingThemByDifferentParams() {
-
-        String salesmane = "salesmane";
-        String deirector = "director";
-
-
-
-        EmployeeDTO employeeDTO=  new EmployeeDTOBuilder()
-                .withFirstName("TOMEK")
-                .withLastName("Pods")
-                .withBirthDatee(new Date())
-                .withProfession(salesmane)
-                .build();
-
-
-        EmployeeDTO employeeDTO2=  new EmployeeDTOBuilder()
-                .withFirstName("TOMEK")
-                .withLastName("Pods")
-                .withBirthDatee(new Date())
-                .withProfession(deirector)
-                .build();
-        EmployeeDTO savedEmployee = employeeService.addEmployee(employeeDTO);
-        EmployeeDTO savedEmployee2 = employeeService.addEmployee(employeeDTO2);
-
-
-        DepartmentDTO departmentDTO = new DepartmentDTOBuilder()
-                .withAddress("poznan")
-                .withPhoneNumber("32432434")
-                .build();
-        DepartmentDTO saveDepartmentDTO = departmentService.addDepartment(departmentDTO);
-        departmentService.addEmployeeToDepartment(saveDepartmentDTO, savedEmployee);
-
-
-        CarDTO car = new CarDTO.CarDTOBuilder().withType("family").withMark("BMW")
-                .withProductionYear(Year.parse("2006")).withColor("Black").withEngineCapacity(200).withPower(60)
-                .withMileage(43324).build();
-        CarDTO savedCar = carService.addCar(car);
-
-        carService.addGuardianToCar(savedCar, savedEmployee);
-
-        EmployeeSearchCriteria employeeSearchCriteria = new EmployeeSearchCriteria();
-        employeeSearchCriteria.setProfession(salesmane);
-        employeeSearchCriteria.setDepartmentEntity(saveDepartmentDTO.getId());
-        employeeSearchCriteria.setCarEntity(savedCar.getId());
-
-        List<EmployeeDTO> employees = employeeService.findWorkersByMultiParams(employeeSearchCriteria);
-
-        assertThat(employees.size()).isEqualTo(1);
-    }
 
 
 

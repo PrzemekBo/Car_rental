@@ -1,12 +1,10 @@
 package com.capgemini.dto;
 
-import com.capgemini.entity.CarEntity;
-import com.capgemini.entity.CustomerEntity;
-import com.capgemini.entity.DepartmentEntity;
-import com.sun.istack.internal.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
 
 

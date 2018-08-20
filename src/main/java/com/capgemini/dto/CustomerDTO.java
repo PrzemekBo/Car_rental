@@ -1,10 +1,10 @@
 package com.capgemini.dto;
 
-import com.capgemini.entity.RentEntity;
-import com.sun.istack.internal.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -39,7 +39,6 @@ public class CustomerDTO {
 
         public CustomerDTOBuilder() {
         }
-
 
 
         public CustomerDTO.CustomerDTOBuilder withId(Long id) {
@@ -83,10 +82,6 @@ public class CustomerDTO {
 
 
     }
-
-
-
-
 
 
 }

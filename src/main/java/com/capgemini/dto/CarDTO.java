@@ -1,13 +1,11 @@
 package com.capgemini.dto;
 
 
-import com.capgemini.entity.EmployeeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.Year;
-import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -28,8 +26,6 @@ public class CarDTO {
     private List<Long> rent;
 
 
-  //  private List<EmployeeEntity> guardianEmployees;
-
 
     public static CarDTOBuilder builder() {
         return new CarDTOBuilder();
@@ -49,12 +45,9 @@ public class CarDTO {
         private List<Long> rent;
 
 
-        //private List<EmployeeEntity> guardianEmployees;
-
         public CarDTOBuilder() {
 
         }
-
 
 
         public CarDTOBuilder withId(Long id) {
@@ -62,20 +55,21 @@ public class CarDTO {
             return this;
         }
 
-        public CarDTOBuilder withType(String type){
-            this.type=type;
+        public CarDTOBuilder withType(String type) {
+            this.type = type;
             return this;
         }
 
-        public CarDTOBuilder withMark(String mark){
-            this.mark=mark;
+        public CarDTOBuilder withMark(String mark) {
+            this.mark = mark;
             return this;
 
         }
-        public CarDTOBuilder withProductionYear(Year productionYear){
-            this.productionYear=productionYear;
+
+        public CarDTOBuilder withProductionYear(Year productionYear) {
+            this.productionYear = productionYear;
             return this;
-         }
+        }
 
         public CarDTOBuilder withColor(String color) {
             this.color = color;
@@ -98,29 +92,20 @@ public class CarDTO {
         }
 
 
-
-
-        public CarDTOBuilder withGuardians(List<Long> guardians){
+        public CarDTOBuilder withGuardians(List<Long> guardians) {
             this.guardians = guardians;
             return this;
         }
 
-        public CarDTOBuilder withRent(List<Long> rent){
+        public CarDTOBuilder withRent(List<Long> rent) {
             this.rent = rent;
             return this;
         }
 
 
-   /*     //TODO nie jestem pewnz cz to dobrze
-        public CarDTOBuilder withGuardianEmployees(List<EmployeeEntity>guardianEmployees){
-        this.guardianEmployees=guardianEmployees;
-        return this;
-        }*/
+        public CarDTO build() {
 
-
-        public CarDTO build(){
-            //check
-            return new CarDTO(id, type, mark, productionYear, color, engineCapacity, power, mileage,guardians,rent);
+            return new CarDTO(id, type, mark, productionYear, color, engineCapacity, power, mileage, guardians, rent);
         }
     }
 

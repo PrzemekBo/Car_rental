@@ -8,15 +8,5 @@ import java.util.List;
 
 public interface DepartmentDao extends Dao<DepartmentEntity, Long>  {
 
-/*
-    List<EmployeeEntity> findEmployeesByDepartment(DepartmentEntity departmentEntity);
-
- //   List<EmployeeEntity> findEmployeesByDepartmentAndCar(DepartmentEntity departmentEntity, CarEntity carEntity);
-
-    void addEmployeeToDepartment(EmployeeEntity employeeEntity, DepartmentEntity departmentEntity);
-
-    void removeEmployeeFromDepartment(EmployeeEntity employeeEntity, DepartmentEntity departmentEntity);
-
-*/
 
 }

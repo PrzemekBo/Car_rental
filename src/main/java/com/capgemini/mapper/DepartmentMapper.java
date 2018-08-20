@@ -24,7 +24,7 @@ public class DepartmentMapper {
 
     }
 
-//TODO brak informacji o prcownikach a powinny byc
+
     public static DepartmentDTO toDepartmentDTO(DepartmentEntity departmentEntity) {
         if(departmentEntity == null){
             return null;
@@ -44,13 +44,6 @@ public class DepartmentMapper {
         return departmentDTOBuilder.build();
     }
 
-
- /*       return new DepartmentDTOBuilder()
-                .withId(departmentEntity.getId())
-                .withAddress(departmentEntity.getAddress())
-                .withPhoneNumber(departmentEntity.getPhoneNumber())
-                .build();
-*/
 
 
     public static List<DepartmentDTO> toDepartmentDTOList(List<DepartmentEntity> departments) {

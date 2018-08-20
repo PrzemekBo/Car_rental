@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -53,19 +52,5 @@ public class RentEntity {
     }
 
 
-    /*    @ManyToOne
-    @JoinColumn(name = "id_department_rental")
-    private DepartmentEntity placeOfRental;
 
-    @ManyToOne
-    @JoinColumn(name = "id_department_delivery")
-    private DepartmentEntity placeOfDelivery;
-
-    @ManyToOne
-    @JoinColumn(name = "id_car")
-    private CarEntity carEntity;
-
-    @ManyToOne
-    @JoinColumn(name = "id_customer")
-    private CustomerEntity customerEntity;*/
 }

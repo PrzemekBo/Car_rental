@@ -11,9 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "department")
 @Data
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@EntityListeners({Listener.class})
-public class DepartmentEntity extends AbstractEntity  {
+public class DepartmentEntity extends AbstractEntity {
 
 
     @Id
@@ -32,23 +30,6 @@ public class DepartmentEntity extends AbstractEntity  {
     private List<EmployeeEntity> employees;
 
 
-/*
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<EmployeeEntity> employees;
-*/
-
-/*
-
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<EmployeeEntity> employees;
-*/
-
-
-/*
-    @OneToMany(mappedBy = "departmentEntity")
-    private List<EmployeeEntity> employes;
-
-*/
 
 
 

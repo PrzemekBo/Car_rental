@@ -5,9 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.Year;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 
 
@@ -45,22 +42,12 @@ public class CarEntity extends AbstractEntity {
     @NotNull
     private Integer mileage;
 
-    @OneToMany (cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.REMOVE)
     private List<RentEntity> rents;
-
-
-
-
 
 
     @ManyToMany
     private List<EmployeeEntity> guardians;
 
-
-
-/*
-    @ManyToMany(mappedBy = "supportedCar", cascade = CascadeType.MERGE)
-    private List<EmployeeEntity> guardianEmployees;
-*/
 
 }
