@@ -20,8 +20,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
-@RunWith(SpringRunner.class)
-@SpringBootTest(properties = "spring.profiles.active=hsql")
+
 public class EmployeeServiceTest {
 
 
