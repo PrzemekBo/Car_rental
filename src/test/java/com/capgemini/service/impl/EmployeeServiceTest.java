@@ -87,5 +87,26 @@ public class EmployeeServiceTest {
         assertThat(employees.size()).isEqualTo(1);
     }
 
+    @Test
+    @Transactional
+    public void shouldFindEmployeeById() {
+        //given
+        EmployeeDTO employeeDTO=  new EmployeeDTO.EmployeeDTOBuilder()
+                .withFirstName("TOMEK")
+                .withLastName("Pods")
+                .withBirthDatee(new Date())
+                .withProfession("testter")
+                .build();
+        EmployeeDTO savedEmployee = employeeService.addEmployee(employeeDTO);
+
+        //when
+        EmployeeDTO selectedEmplo = employeeService.findEmployeeById(savedEmployee.getId());
+
+        //then
+        assertThat(selectedEmplo.getId()).isEqualTo(savedEmployee.getId());
+    }
+
+
+
 
 }

@@ -251,73 +251,7 @@ public class CarServiceImplTest {
 
     }
 
-    @Test
-    @Transactional
-    public void shouldFindCarsRentedMoreThanByTenCustomers() {
 
-        RentDTO rentDTO = new RentDTO().builder().cost(2000).rentDate(new Date()).build();
-        RentDTO newRent1 = rentService.addRent(rentDTO);
-        RentDTO newRent2 = rentService.addRent(rentDTO);
-        RentDTO newRent3 = rentService.addRent(rentDTO);
-        RentDTO newRent4 = rentService.addRent(rentDTO);
-        RentDTO newRent5 = rentService.addRent(rentDTO);
-        RentDTO newRent6 = rentService.addRent(rentDTO);
-        RentDTO newRent7 = rentService.addRent(rentDTO);
-        RentDTO newRent8 = rentService.addRent(rentDTO);
-        RentDTO newRent9 = rentService.addRent(rentDTO);
-        RentDTO newRent10 = rentService.addRent(rentDTO);
-        RentDTO newRent11 = rentService.addRent(rentDTO);
-        RentDTO newRent12 = rentService.addRent(rentDTO);
-
-
-        CarDTO car = new CarDTOBuilder().withType("family").withMark("BMW")
-                .withProductionYear(Year.parse("2006")).withColor("Blue").withEngineCapacity(200).withPower(60)
-                .withMileage(433824).build();
-        CarDTO newCar = carService.addCar(car);
-
-
-        CustomerDTO customerDTO = new CustomerDTO.CustomerDTOBuilder()
-                .withFirstName("Adam")
-                .withFirstName("Bok")
-                .withHome("Poznan")
-                .withCreditCardNumber("1234567890123456")
-                .build();
-
-        CustomerDTO newCustomer1 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer2 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer3 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer4 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer5 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer6 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer7 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer8 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer9 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer10 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer11 = customerService.addCustomer(customerDTO);
-        CustomerDTO newCustomer12 = customerService.addCustomer(customerDTO);
-
-
-        //when
-        carService.createNewRent(newCar, newRent1, newCustomer1);
-        carService.createNewRent(newCar, newRent2, newCustomer2);
-        carService.createNewRent(newCar, newRent3, newCustomer3);
-        carService.createNewRent(newCar, newRent4, newCustomer4);
-        carService.createNewRent(newCar, newRent5, newCustomer6);
-        carService.createNewRent(newCar, newRent6, newCustomer6);
-        carService.createNewRent(newCar, newRent7, newCustomer7);
-        carService.createNewRent(newCar, newRent8, newCustomer8);
-        carService.createNewRent(newCar, newRent9, newCustomer9);
-        carService.createNewRent(newCar, newRent10, newCustomer10);
-        carService.createNewRent(newCar, newRent11, newCustomer11);
-        carService.createNewRent(newCar, newRent12, newCustomer12);
-
-        List<CarDTO> cars = carService.findCarsRentedByMoreThanTenCustomer();
-
-        //then
-        assertThat(cars.size()).isEqualTo(1);
-
-
-    }
 
     @Test
     @Transactional
