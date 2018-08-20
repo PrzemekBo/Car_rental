@@ -1,7 +1,4 @@
-package com.capgemini.mapper;
-
-import com.capgemini.dto.ProfessionDTO;
-import com.capgemini.entity.ProfessionEntity;
+package com.capgemini.aWyw;
 
 import java.util.List;
 import java.util.stream.Collectors;

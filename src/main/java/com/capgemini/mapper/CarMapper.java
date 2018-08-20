@@ -37,7 +37,32 @@ public class CarMapper {
             return null;
         }
 
-        return new CarDTOBuilder()
+        CarDTOBuilder carDTOBuilder= new CarDTOBuilder()
+                .withId(carEntity.getId())
+                .withType(carEntity.getType())
+                .withMark(carEntity.getMark())
+                .withProductionYear(carEntity.getProductionYear())
+                .withColor(carEntity.getColor())
+                .withEngineCapacity(carEntity.getEngineCapacity())
+                .withPower(carEntity.getPower())
+                .withEngineCapacity(carEntity.getEngineCapacity())
+                .withMileage(carEntity.getMileage());
+
+        if (carEntity.getGuardians() != null){
+            carDTOBuilder = carDTOBuilder.withGuardians(carEntity.getGuardians().stream().map(e -> e.getId()).collect(Collectors.toList()));
+        }
+
+        if(carEntity.getRents() != null){
+            carDTOBuilder = carDTOBuilder.withRent(carEntity.getRents().stream().map(r -> r.getId()).collect(Collectors.toList()));
+        }
+
+        return carDTOBuilder.build();
+    }
+
+
+
+
+  /*      return new CarDTOBuilder()
                 .withId(carEntity.getId())
                 .withType(carEntity.getType())
                 .withMark(carEntity.getMark())
@@ -48,8 +73,8 @@ public class CarMapper {
                 .withEngineCapacity(carEntity.getEngineCapacity())
                 .withMileage(carEntity.getMileage())
                 //.withGuardianEmployees(carEntity.getGuardianEmployees())
-                .build();
-    }
+                .build();*/
+
 
 /*
     public static Set<CarDTO> toCarTOList(Set<CarEntity> cars) {
@@ -68,22 +93,29 @@ public class CarMapper {
 
     }*/
 
-    public static Set<CarDTO> mapToDTO(Set<CarEntity> carEntities) {
-        return carEntities.stream().map(CarMapper::toCarDTO).collect(Collectors.toSet());
-    }
 
     public static List<CarDTO> toCarTOList(List<CarEntity> cars) {
         return cars.stream().map(CarMapper::toCarDTO).collect(Collectors.toList());
     }
 
-    public static List<CarEntity> mapToEntities(List<CarDTO> carDTOS) {
+/*    public static List<CarEntity> mapToEntities(List<CarDTO> carDTOS) {
         return carDTOS.stream().map(CarMapper::toCarEntity).collect(Collectors.toList());
         //return carDTOS.stream().map(CarMapper::toCarEntity).collect(Collectors.toSet());
-    }
+    }*/
 
+
+    /*
+    public static Set<CarDTO> mapToDTO(Set<CarEntity> carEntities) {
+        return carEntities.stream().map(CarMapper::toCarDTO).collect(Collectors.toSet());
+    }
+*/
+
+
+/*
     public static Set<CarEntity> mapToEntities(Set<CarDTO> carDTOS) {
         return carDTOS.stream().map(CarMapper::toCarEntity).collect(Collectors.toSet());
     }
+*/
 
 
 

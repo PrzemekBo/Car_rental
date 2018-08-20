@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -19,7 +20,7 @@ public class DepartmentDTO {
     private String address;
     private String phoneNumber;
 
-    private List<EmployeeDTO> employees;
+    private List<Long> employees;
 
 
     public static DepartmentDTO.DepartmentDTOBuilder builder() {
@@ -31,7 +32,7 @@ public class DepartmentDTO {
         private String address;
         private String phoneNumber;
 
-        private List<EmployeeDTO> employees;
+        private List<Long> employees=new ArrayList<>();
 
 
         public DepartmentDTOBuilder() {
@@ -53,7 +54,7 @@ public class DepartmentDTO {
             return this;
         }
 
-        public DepartmentDTOBuilder withEmployees(List<EmployeeDTO> employees){
+        public DepartmentDTOBuilder withEmployees(List<Long> employees){
             this.employees = employees;
             return this;
         }

@@ -12,5 +12,7 @@ public class StarterKitJpaStarterApplication {
 		System.setProperty("spring.profiles.active", "mysql");
 
 		SpringApplication.run(StarterKitJpaStarterApplication.class, args);
+
+
 	}
 }

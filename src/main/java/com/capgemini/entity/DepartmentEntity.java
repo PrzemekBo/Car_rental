@@ -31,6 +31,12 @@ public class DepartmentEntity extends AbstractEntity  {
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<EmployeeEntity> employees;
 
+
+/*
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<EmployeeEntity> employees;
+*/
+
 /*
 
     @OneToMany(cascade = CascadeType.PERSIST)

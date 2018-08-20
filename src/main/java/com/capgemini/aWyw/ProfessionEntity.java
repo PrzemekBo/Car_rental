@@ -1,4 +1,4 @@
-package com.capgemini.entity;
+package com.capgemini.aWyw;
 
 
 import com.sun.istack.internal.NotNull;

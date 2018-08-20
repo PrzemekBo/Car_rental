@@ -6,7 +6,10 @@ import com.capgemini.entity.EmployeeEntity;
 import com.capgemini.mapper.EmployeeMapper;
 import com.capgemini.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeDao employeeDao;
@@ -15,6 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeServiceImpl(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }
+
     @Override
     public EmployeeDTO findEmployeeById(Long id) {
 
@@ -24,9 +28,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDTO addEmployee(EmployeeDTO employeeDTO) {
-        EmployeeEntity employeeEntity=employeeDao.save(EmployeeMapper.toEmployeeEntity(employeeDTO));
+
+        EmployeeEntity employeeEntity = employeeDao.save(EmployeeMapper.toEmployeeEntity(employeeDTO));
         return EmployeeMapper.toEmployeeDTO(employeeEntity);
-
-
     }
+
+
+
 }

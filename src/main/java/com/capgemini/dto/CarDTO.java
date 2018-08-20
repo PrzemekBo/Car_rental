@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.Year;
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -23,6 +24,10 @@ public class CarDTO {
     private Integer engineCapacity;
     private Integer power;
     private Integer mileage;
+    private List<Long> guardians;
+    private List<Long> rent;
+
+
   //  private List<EmployeeEntity> guardianEmployees;
 
 
@@ -40,6 +45,10 @@ public class CarDTO {
         private Integer engineCapacity;
         private Integer power;
         private Integer mileage;
+        private List<Long> guardians;
+        private List<Long> rent;
+
+
         //private List<EmployeeEntity> guardianEmployees;
 
         public CarDTOBuilder() {
@@ -88,6 +97,20 @@ public class CarDTO {
             return this;
         }
 
+
+
+
+        public CarDTOBuilder withGuardians(List<Long> guardians){
+            this.guardians = guardians;
+            return this;
+        }
+
+        public CarDTOBuilder withRent(List<Long> rent){
+            this.rent = rent;
+            return this;
+        }
+
+
    /*     //TODO nie jestem pewnz cz to dobrze
         public CarDTOBuilder withGuardianEmployees(List<EmployeeEntity>guardianEmployees){
         this.guardianEmployees=guardianEmployees;
@@ -97,7 +120,7 @@ public class CarDTO {
 
         public CarDTO build(){
             //check
-            return new CarDTO(id, type, mark, productionYear, color, engineCapacity, power, mileage);
+            return new CarDTO(id, type, mark, productionYear, color, engineCapacity, power, mileage,guardians,rent);
         }
     }
 

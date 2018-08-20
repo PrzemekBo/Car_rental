@@ -42,6 +42,40 @@ public class CarDaoImpl extends AbstractDao<CarEntity, Long> implements CarDao {
     }
 
     @Override
+    public List<CarEntity> findCarsRentedByMoreThanTenCustomer() {
+        TypedQuery<CarEntity> query = entityManager.createQuery(
+                "select car from CarEntity car join car.rent c group by car.id" +
+                        " having count(distinct c.customerId.id)>10", CarEntity.class);
+
+        return query.getResultList();
+    }
+
+}
+
+/*    @Override
+    public void addCarToEmployee(CarEntity carEntity, EmployeeEntity employeeEntity) {
+        TypedQuery<EmployeeEntity> query = entityManager.createQuery(
+                "select employee from EmployeeEntity employee where employee.id = :employeeId", EmployeeEntity.class);
+        query.setParameter("employeeId", employeeEntity.getId());
+        EmployeeEntity employee = query.getSingleResult();
+
+        employee.addCar(carEntity);
+        entityManager.merge(employee);
+    }*/
+
+/*
+    @Override
+    public List<CarEntity> findCarByEmployeeSupervisor(EmployeeEntity employeeEntity) {
+        Query query = entityManager.createQuery(
+                "select e.cars from EmployeeEntity e where e.id = :id");
+        query.setParameter("id", employeeEntity.getId());
+        return query.getResultList();
+    }
+
+*/
+
+/*
+    @Override
     public List<CarEntity> findCarByEmployeeSupervisor(long employeeSupervisorId) {
         EmployeeEntity employee = entityManager.getReference(EmployeeEntity.class, employeeSupervisorId);
         TypedQuery<CarEntity> query = entityManager.createQuery(
@@ -49,7 +83,7 @@ public class CarDaoImpl extends AbstractDao<CarEntity, Long> implements CarDao {
         query.setParameter("supervisor", employee);
         return query.getResultList();
     }
+*/
 
 
 
-}

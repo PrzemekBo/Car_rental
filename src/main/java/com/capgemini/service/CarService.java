@@ -1,10 +1,13 @@
 package com.capgemini.service;
 
 import com.capgemini.dto.CarDTO;
+import com.capgemini.dto.CustomerDTO;
 import com.capgemini.dto.EmployeeDTO;
+import com.capgemini.dto.RentDTO;
 import com.capgemini.entity.CarEntity;
 
 import java.util.List;
+import java.util.Set;
 
 public interface CarService {
 
@@ -22,11 +25,22 @@ public interface CarService {
 
     void deleteCar(Long id);
 
-    List<CarDTO> findCarBySupervisor(long supervisorId);
+    List<CarDTO> findAllCars();
 
 
+    void addGuardianToCar(CarDTO car, EmployeeDTO employee);
+
+    List<EmployeeDTO> findEmployeesByCar(CarDTO car);
+
+    List<CarDTO> findCarsByGuardian(EmployeeDTO employee);
+
+    void addRentToCar(CarDTO car, RentDTO rent);
 
     void deleteAll();
+
+    void createNewRent(CarDTO carDTO, RentDTO rentDTO, CustomerDTO customerDTO);
+
+    List<CarDTO> findCarsRentedByMoreThanTenCustomer();
 
 
     //TODO

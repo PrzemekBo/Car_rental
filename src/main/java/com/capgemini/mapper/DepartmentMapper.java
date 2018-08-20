@@ -2,12 +2,9 @@ package com.capgemini.mapper;
 
 import com.capgemini.dto.DepartmentDTO;
 import com.capgemini.dto.DepartmentDTO.DepartmentDTOBuilder;
-import com.capgemini.dto.EmployeeDTO;
 import com.capgemini.entity.DepartmentEntity;
-import com.capgemini.entity.EmployeeEntity;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DepartmentMapper {
@@ -33,13 +30,28 @@ public class DepartmentMapper {
             return null;
         }
 
-        return new DepartmentDTOBuilder()
+
+        DepartmentDTOBuilder departmentDTOBuilder= new DepartmentDTOBuilder()
+                .withId(departmentEntity.getId())
+                .withId(departmentEntity.getId())
+                .withAddress(departmentEntity.getAddress())
+                .withPhoneNumber(departmentEntity.getPhoneNumber());
+
+        if (departmentEntity.getEmployees() != null) {
+            departmentDTOBuilder = departmentDTOBuilder.withEmployees(departmentEntity.getEmployees().stream().map(e -> e.getId()).collect(Collectors.toList()));
+        }
+
+        return departmentDTOBuilder.build();
+    }
+
+
+ /*       return new DepartmentDTOBuilder()
                 .withId(departmentEntity.getId())
                 .withAddress(departmentEntity.getAddress())
                 .withPhoneNumber(departmentEntity.getPhoneNumber())
                 .build();
+*/
 
-    }
 
     public static List<DepartmentDTO> toDepartmentDTOList(List<DepartmentEntity> departments) {
         return departments.stream()

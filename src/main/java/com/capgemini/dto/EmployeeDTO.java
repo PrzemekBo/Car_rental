@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -19,10 +18,12 @@ public class EmployeeDTO {
     private Long id;
     private String firstName;
     private String lastName;
-    private LocalDate birthDate;
-    private ProfessionDTO professionDTO;
-    private DepartmentDTO departmentDTO;
-    private Set<CarDTO> carDTOS = new HashSet<>();
+    private Date birthDate;
+    private String profession;
+
+    private Long departmentId;
+    private List<Long> cars;
+
 
 
     public static EmployeeDTO.EmployeeDTOBuilder builder() {
@@ -35,10 +36,11 @@ public class EmployeeDTO {
         private Long id;
         private String firstName;
         private String lastName;
-        private LocalDate birthDate;
-        private ProfessionDTO professionDTO;
-        private DepartmentDTO departmentDTO;
-        private Set<CarDTO> carDTOS = new HashSet<>();
+        private Date birthDate;
+        private String profession;
+        // private DepartmentDTO departmentDTO;
+        private Long departmentId;
+        private List<Long> cars;
 
 
         public EmployeeDTOBuilder() {
@@ -60,28 +62,28 @@ public class EmployeeDTO {
             return this;
         }
 
-        public EmployeeDTOBuilder withBirthDatee(LocalDate birthDate) {
+        public EmployeeDTOBuilder withBirthDatee(Date birthDate) {
             this.birthDate = birthDate;
             return this;
         }
 
-        public EmployeeDTOBuilder withProfessionDTO(ProfessionDTO professionDTO) {
-            this.professionDTO = professionDTO;
+        public EmployeeDTOBuilder withProfession(String profession) {
+            this.profession = profession;
             return this;
         }
 
-        public EmployeeDTOBuilder withDepartmentDTO(DepartmentDTO departmentDTO) {
-            this.departmentDTO = departmentDTO;
+        public EmployeeDTOBuilder withDepartmentId(Long departmentId) {
+            this.departmentId = departmentId;
             return this;
         }
 
-        public EmployeeDTOBuilder withCarDTOS(Set<CarDTO> carDTOS) {
-            this.carDTOS = carDTOS;
+        public EmployeeDTOBuilder withCars(List<Long> cars) {
+            this.cars = cars;
             return this;
         }
 
         public EmployeeDTO build() {
-            return new EmployeeDTO(id, firstName, lastName, birthDate, professionDTO, departmentDTO, carDTOS);
+            return new EmployeeDTO(id, firstName, lastName, birthDate, profession, departmentId, cars);
         }
     }
 }

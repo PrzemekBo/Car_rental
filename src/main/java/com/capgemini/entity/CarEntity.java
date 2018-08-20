@@ -6,12 +6,13 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.Year;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
 
 @Entity
-@Table(name = "cars")
+@Table(name = "car")
 @Data
 public class CarEntity extends AbstractEntity {
 
@@ -44,8 +45,16 @@ public class CarEntity extends AbstractEntity {
     @NotNull
     private Integer mileage;
 
-    @OneToMany(mappedBy = "carEntity", cascade = CascadeType.REMOVE)
+    @OneToMany (cascade = CascadeType.REMOVE)
     private List<RentEntity> rents;
+
+
+
+
+
+
+    @ManyToMany
+    private List<EmployeeEntity> guardians;
 
 
 
