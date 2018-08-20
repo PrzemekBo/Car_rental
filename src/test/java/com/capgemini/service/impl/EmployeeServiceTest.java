@@ -24,16 +24,7 @@ import static org.junit.Assert.*;
 public class EmployeeServiceTest {
 
 
-    @Autowired
-    private DepartmentService departmentService;
-
-    @Autowired
-    private EmployeeService employeeService;
-
-    @Autowired
-    private CarService carService;
-
-
+/*
     @Test
     @Transactional
     public void shouldReturnEmployeeByFindingThemByMultiParams() {
@@ -104,6 +95,7 @@ public class EmployeeServiceTest {
         //then
         assertThat(selectedEmplo.getId()).isEqualTo(savedEmployee.getId());
     }
+*/
 
 
 
